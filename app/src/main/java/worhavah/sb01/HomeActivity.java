@@ -1,14 +1,18 @@
 package worhavah.sb01;
 
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,6 +22,8 @@ public class HomeActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private List<String> mDatas;
     private HomeAdapter mAdapter;
+    private NavigationView mNavigationView;
+    private DrawerLayout mDrawerLayout;
 
     private TextView tv1,tv2,tv3;
 
@@ -27,6 +33,9 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mDrawerLayout = (DrawerLayout) findViewById(R.id.id_drawer_layout);
+        mNavigationView = (NavigationView) findViewById(R.id.id_nv_menu);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.id_toolbar);
          setSupportActionBar(toolbar);
@@ -52,7 +61,29 @@ public class HomeActivity extends AppCompatActivity {
         //mRecyclerView.addItemDecoration(new DividerItemDecoration(HomeActivity.this,100));
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this,
                 DividerItemDecoration.VERTICAL_LIST));
+
+        setupDrawerContent(mNavigationView);
     }
+
+
+    private void setupDrawerContent(NavigationView navigationView)
+    {
+        navigationView.setNavigationItemSelectedListener(
+
+                new NavigationView.OnNavigationItemSelectedListener()
+                {
+
+                    @Override
+                    public boolean onNavigationItemSelected(MenuItem menuItem)
+                    {
+                        menuItem.setChecked(true);
+                        //mDrawerLayout.closeDrawers();
+                        Toast.makeText(HomeActivity.this,"a"+menuItem.getTitle(),Toast.LENGTH_SHORT).show();
+                        return true;
+                    }
+                });
+    }
+
     protected void initData()
     {
         mDatas = new ArrayList<String>();

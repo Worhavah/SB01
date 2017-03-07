@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/id_drawer_layout"
     >
 
     <LinearLayout
@@ -43,8 +44,9 @@
                 <TextView
                     android:id="@+id/tv1"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:text="Hello SB!"
+                    android:gravity="center"
                     android:layout_weight="1"
                     android:background="@color/colorAccent"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -53,8 +55,9 @@
                     app:layout_constraintTop_toTopOf="parent" />
                 <TextView
                     android:id="@+id/tv2"
+                    android:gravity="center"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:text="Hello SB!@2"
                     android:layout_weight="1"
                     android:background="#FFFFF0"
@@ -63,9 +66,10 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
                 <TextView
+                    android:gravity="center"
                     android:id="@+id/tv3"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
                     android:text="Hello SB!#3"
                     android:background="@color/colorPrimaryDark"
                     android:layout_weight="1"
@@ -96,7 +100,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/header_just_username"
+        app:headerLayout="@layout/banner"
         app:menu="@menu/menu_drawer"
         />
 
