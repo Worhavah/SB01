@@ -20,6 +20,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import worhavah.sb01.adapter.AdvertisePagerViewAdapter;
+
 public class HomeActivity extends AppCompatActivity {
 
     private LinearLayout headerLayout;//头布局
@@ -37,9 +39,11 @@ public class HomeActivity extends AppCompatActivity {
     private ViewPager mAdverViewpager;
     // 广告集合
     private List<ImageView> adver_images = new ArrayList<ImageView>();
-    private com.jiaui.recyclerviewhaderdemo.adapter.AdvertisePagerViewAdapter mAdvertiseAdapter; // 广告适配器
+    private AdvertisePagerViewAdapter mAdvertiseAdapter; // 广告适配器
     private LinearLayout mDotLayout;
 
+    public HomeActivity() {
+    }
 
 
     @Override

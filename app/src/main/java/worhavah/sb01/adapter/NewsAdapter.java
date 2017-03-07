@@ -1,4 +1,4 @@
-package com.jiaui.recyclerviewhaderdemo.adapter;
+package worhavah.sb01.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -10,13 +10,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.jiaui.recyclerviewhaderdemo.R;
-import com.jiaui.recyclerviewhaderdemo.bean.NewsBean;
-import com.jiaui.recyclerviewhaderdemo.widget.BaseRecyclerAdapter;
+
 
 import java.util.LinkedList;
 
+import worhavah.sb01.R;
+
 public class NewsAdapter extends BaseRecyclerAdapter<NewsBean.News, NewsAdapter.MyViewHolder> {
+
+
 
     public NewsAdapter(Context context) {
         super(context);

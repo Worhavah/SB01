@@ -1,4 +1,4 @@
-package com.jiaui.recyclerviewhaderdemo.adapter;
+package worhavah.sb01.adapter;
 
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
