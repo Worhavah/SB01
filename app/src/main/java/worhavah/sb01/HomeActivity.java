@@ -1,6 +1,7 @@
 package worhavah.sb01;
 
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +22,8 @@ import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
 
+    private LinearLayout headerLayout;//头布局
+
     private RecyclerView mRecyclerView;
     private List<String> mDatas;
     private HomeAdapter mAdapter;
@@ -26,6 +31,14 @@ public class HomeActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
 
     private TextView tv1,tv2,tv3;
+
+
+    // 广告轮播
+    private ViewPager mAdverViewpager;
+    // 广告集合
+    private List<ImageView> adver_images = new ArrayList<ImageView>();
+    private com.jiaui.recyclerviewhaderdemo.adapter.AdvertisePagerViewAdapter mAdvertiseAdapter; // 广告适配器
+    private LinearLayout mDotLayout;
 
 
 
@@ -37,6 +50,7 @@ public class HomeActivity extends AppCompatActivity {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.id_drawer_layout);
         mNavigationView = (NavigationView) findViewById(R.id.id_nv_menu);
 
+        initHeaderView();// 初始化头部
         Toolbar toolbar = (Toolbar) findViewById(R.id.id_toolbar);
          setSupportActionBar(toolbar);
 
@@ -66,6 +80,20 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * 初始化头布局
+     */
+    private void initHeaderView() {
+
+        // 布局解析器，解析取得头部北荣
+        headerLayout = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.recyclerview_header, null);
+
+        //头部控件初始化
+        mAdverViewpager = (ViewPager) headerLayout.findViewById(R.id.ad_viewpager);//初始化广告轮播ViewPager
+        mDotLayout = (LinearLayout) headerLayout.findViewById(R.id.dot_layout);//广告对应的dot
+    }
+
+
     private void setupDrawerContent(NavigationView navigationView)
     {
         navigationView.setNavigationItemSelectedListener(
@@ -78,7 +106,13 @@ public class HomeActivity extends AppCompatActivity {
                     {
                         menuItem.setChecked(true);
                         //mDrawerLayout.closeDrawers();
-                        Toast.makeText(HomeActivity.this,"a"+menuItem.getTitle(),Toast.LENGTH_SHORT).show();
+                        if(menuItem.getTitle().equals("Friends")){
+                            Toast.makeText(HomeActivity.this,"usoso",Toast.LENGTH_SHORT).show();
+
+                        }else{
+                            Toast.makeText(HomeActivity.this,"a"+menuItem.getTitle(),Toast.LENGTH_SHORT).show();
+
+                        }
                         return true;
                     }
                 });
