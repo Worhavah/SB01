@@ -5,6 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -80,6 +81,8 @@ public class HomeActivity extends AppCompatActivity {
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this,
                 DividerItemDecoration.VERTICAL_LIST));
 
+        //mRecyclerView.addHeaderView(headerLayout);
+
         setupDrawerContent(mNavigationView);
     }
 
@@ -95,6 +98,41 @@ public class HomeActivity extends AppCompatActivity {
         //头部控件初始化
         mAdverViewpager = (ViewPager) headerLayout.findViewById(R.id.ad_viewpager);//初始化广告轮播ViewPager
         mDotLayout = (LinearLayout) headerLayout.findViewById(R.id.dot_layout);//广告对应的dot
+    }
+
+    /**
+     * 初始化控件
+     */
+    private void initializeViews() {
+
+
+        /** 广告轮播 **/
+        mAdvertiseAdapter = new AdvertisePagerViewAdapter(adver_images);
+        mAdverViewpager.setAdapter(mAdvertiseAdapter);
+
+       // mNewsRecyclerView = (RecyclerView) findViewById(R.id.news_rv);
+
+       /* *//** 新闻 **//*
+        // 设置布局显示方式，这里我使用都是垂直方式——LinearLayoutManager.VERTICAL
+        mNewsRecyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayout.VERTICAL, false));
+        // 设置添加删除item的时候的动画效果
+        mNewsRecyclerView.setItemAnimator(new DefaultItemAnimator());
+        // 新闻适配器
+        mNewsAdapter = new NewsAdapter(this, newsData);
+        mWrapAdapter = new WrapAdapter<>(mNewsAdapter);
+        // 设置头部占据一行
+        mWrapAdapter.adjustSpanSize(mNewsRecyclerView);
+        // 设置RecyclerView的数据适配器(适配器包装)
+        mNewsRecyclerView.setAdapter(mWrapAdapter);
+        // 添加头布局
+        mWrapAdapter.addHeaderView(headerLayout);
+
+        //默认在1亿多
+        mAdverViewpager.setCurrentItem(Integer.MAX_VALUE / 2 - ((Integer.MAX_VALUE / 2) % adver_images.size()));
+        //3秒定时
+        mAdvertiseHandler.sendEmptyMessageDelayed(0, 2000);
+        updateDot();*/
+
     }
 
 
