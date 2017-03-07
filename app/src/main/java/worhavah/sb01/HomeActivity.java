@@ -18,15 +18,27 @@ public class HomeActivity extends AppCompatActivity {
     private List<String> mDatas;
     private HomeAdapter mAdapter;
 
+    private TextView tv1,tv2,tv3;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        tv1=(TextView) findViewById(R.id.tv1);
+        tv2=(TextView) findViewById(R.id.tv2);
+        tv3=(TextView) findViewById(R.id.tv3);
+        mRecyclerView = (RecyclerView) findViewById(R.id.id_recyclerview);
+
+
 
         initData();
-        mRecyclerView = (RecyclerView) findViewById(R.id.id_recyclerview);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mAdapter = new HomeAdapter());
+        //mRecyclerView.addItemDecoration(new DividerItemDecoration(HomeActivity.this,100));
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(this,
+                DividerItemDecoration.VERTICAL_LIST));
     }
     protected void initData()
     {
