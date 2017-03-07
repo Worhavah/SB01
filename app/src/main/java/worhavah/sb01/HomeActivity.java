@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +31,10 @@ public class HomeActivity extends AppCompatActivity {
         tv2=(TextView) findViewById(R.id.tv2);
         tv3=(TextView) findViewById(R.id.tv3);
         mRecyclerView = (RecyclerView) findViewById(R.id.id_recyclerview);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.id_toolbar);
+       // setSupportActionBar(toolbar);
+        //StatusBarCompat.compat(this, getResources().getColor(R.color.status_bar_color));
+        //StatusBarCompat.compat(this);
 
 
 
