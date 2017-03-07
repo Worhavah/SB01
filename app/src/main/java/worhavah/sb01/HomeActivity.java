@@ -27,14 +27,22 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.id_toolbar);
+         setSupportActionBar(toolbar);
+
+        //StatusBarCompat.compat(this, 0xFFFF0000);
+        StatusBarCompat.compat(this);
+
         tv1=(TextView) findViewById(R.id.tv1);
         tv2=(TextView) findViewById(R.id.tv2);
         tv3=(TextView) findViewById(R.id.tv3);
         mRecyclerView = (RecyclerView) findViewById(R.id.id_recyclerview);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.id_toolbar);
-       // setSupportActionBar(toolbar);
+
         //StatusBarCompat.compat(this, getResources().getColor(R.color.status_bar_color));
         //StatusBarCompat.compat(this);
+//        setSupportActionBar(toolbar);
+
 
 
 
