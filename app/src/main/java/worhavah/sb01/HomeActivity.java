@@ -1,11 +1,11 @@
 package worhavah.sb01;
 
+import android.content.Intent;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import worhavah.sb01.adapter.AdvertisePagerViewAdapter;
+import worhavah.sb01.demos.ViewoneaAtivity;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -59,6 +60,7 @@ public class HomeActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.id_toolbar);
          setSupportActionBar(toolbar);
 
+
         //StatusBarCompat.compat(this, 0xFFFF0000);
         StatusBarCompat.compat(this);
 
@@ -84,6 +86,48 @@ public class HomeActivity extends AppCompatActivity {
         //mRecyclerView.addHeaderView(headerLayout);
 
         setupDrawerContent(mNavigationView);
+
+
+      /*  mRecyclerView.addOnItemTouchListener(new ItemClickListener(mRecyclerView,
+                new ItemClickListener.OnItemClickListener() {
+
+                    @Override
+                    public void onItemClick(View view, int position) {
+                       // Log.i("touch click name:" + position);
+                        Log.w("addOnItemTouchListener","touch click name:" + position);
+                        Toast.makeText(HomeActivity.this, "touch click:" + position, Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onItemLongClick(View view, int position) {
+                      //  DevLog.i("touch long click:" + position);
+                        Log.w("click","ouch long click:" + position);
+                        Toast.makeText(HomeActivity.this, "touch long click:" + position, Toast.LENGTH_SHORT).show();
+                    }
+                }));*/
+
+
+        mRecyclerView.addOnItemTouchListener(new SingleItemClickListener(mRecyclerView,
+                new SingleItemClickListener.OnItemClickListener() {
+
+                    @Override
+                    public void onItemClick(View view, int position) {
+                       // DevLog.i("touch click name:" + position);
+                        Toast.makeText(HomeActivity.this, "touch click:" + position, Toast.LENGTH_SHORT).show();
+                        if(position==0){
+                            startActivity(new Intent(HomeActivity.this, ViewoneaAtivity.class));
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onItemLongClick(View view, int position) {
+                        //DevLog.i("touch long click:" + position);
+                        Toast.makeText(HomeActivity.this, "touch long click:" + position, Toast.LENGTH_SHORT).show();
+                    }
+                }));
+
     }
 
 
@@ -163,14 +207,45 @@ public class HomeActivity extends AppCompatActivity {
     protected void initData()
     {
         mDatas = new ArrayList<String>();
-        for (int i = 'A'; i < 'z'; i++)
-        {
-            mDatas.add("" + (char) i);
-        }
+        mDatas.add("自定义viewDemo");
+        mDatas.add("1");
+        mDatas.add("2");
+        mDatas.add("3");
+        mDatas.add("4");
+        mDatas.add("5");
+        mDatas.add("6");
+        mDatas.add("7");
+        mDatas.add("1");
+        mDatas.add("2");
+        mDatas.add("3");
+        mDatas.add("4");
+        mDatas.add("5");
+        mDatas.add("6");
+        mDatas.add("7");
+        mDatas.add("1");
+        mDatas.add("2");
+        mDatas.add("3");
+        mDatas.add("4");
+        mDatas.add("5");
+        mDatas.add("6");
+        mDatas.add("7");mDatas.add("1");
+        mDatas.add("2");
+        mDatas.add("3");
+        mDatas.add("4");
+        mDatas.add("5");
+        mDatas.add("6");
+        mDatas.add("7");
+
+
     }
 
-    class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>
+
+
+
+    public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.MyViewHolder>
     {
+
+
 
         @Override
         public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
@@ -182,9 +257,21 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onBindViewHolder(MyViewHolder holder, int position)
+        public void onBindViewHolder(MyViewHolder holder, final int position)
         {
             holder.tv.setText(mDatas.get(position));
+
+
+
+             /*   holder.tv.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Log.w("onBindViewHolder",mDatas.get(position)+"");
+                    }
+                });*/
+
+
+
         }
 
         @Override
@@ -205,6 +292,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         }
     }
+
 
 
 
