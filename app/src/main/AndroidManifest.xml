@@ -19,7 +19,8 @@
 
 
 
-        <activity android:name=".demos.myview.ViewoneAtivity">
+        <activity android:name=".demos.myview.ViewoneAtivity"> </activity>
+        <activity android:name=".demos.myview.VIewGrouponeActivity">
         </activity>
     </application>
 
