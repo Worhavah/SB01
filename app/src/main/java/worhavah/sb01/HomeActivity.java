@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import worhavah.sb01.adapter.AdvertisePagerViewAdapter;
-import worhavah.sb01.demos.ViewoneaAtivity;
+import worhavah.sb01.demos.myview.ViewoneAtivity;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -115,7 +115,7 @@ public class HomeActivity extends AppCompatActivity {
                        // DevLog.i("touch click name:" + position);
                         Toast.makeText(HomeActivity.this, "touch click:" + position, Toast.LENGTH_SHORT).show();
                         if(position==0){
-                            startActivity(new Intent(HomeActivity.this, ViewoneaAtivity.class));
+                            startActivity(new Intent(HomeActivity.this, ViewoneAtivity.class));
 
                         }
 
