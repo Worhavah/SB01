@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -146,6 +147,7 @@ public class CustomTitleView extends View
 			break;
 		case MeasureSpec.AT_MOST:// 一般为WARP_CONTENT
 			width = getPaddingLeft() + getPaddingRight() + mBound.width();
+			//width=width*5;
 			break;
 		}
 
@@ -158,23 +160,59 @@ public class CustomTitleView extends View
 		{
 		case MeasureSpec.EXACTLY:// 明确指定了
 			height = getPaddingTop() + getPaddingBottom() + specSize;
+
 			break;
 		case MeasureSpec.AT_MOST:// 一般为WARP_CONTENT
 			height = getPaddingTop() + getPaddingBottom() + mBound.height();
+			//height=height*5;
 			break;
 		}
 
 		setMeasuredDimension(width, height);
 
 	}
+	private Paint generatePaint(int color,Paint.Style style,int width)
+	{
+		Paint paint = new Paint();
+		paint.setColor(color);
+		paint.setStyle(style);
+		paint.setStrokeWidth(width);
+		return paint;
+	}
 
 	@Override
 	protected void onDraw(Canvas canvas)
 	{
-		mPaint.setColor(Color.YELLOW);
+
+
+
+
+		mPaint.setColor(Color.BLUE);
 		canvas.drawRect(0, 0, getMeasuredWidth(), getMeasuredHeight(), mPaint);
 
 		mPaint.setColor(mTitleTextColor);
 		canvas.drawText(mTitleText, getWidth() / 2 - mBound.width() / 2, getHeight() / 2 + mBound.height() / 2, mPaint);
+
+		canvas.translate(0, 0);
+
+		Paint paint_red   = generatePaint(Color.RED, Paint.Style.STROKE ,3);
+		canvas.drawCircle(50, 500, 50, paint_red);
+		canvas.translate(600, 0);
+		canvas.drawCircle(150, 500, 60, paint_red);
+
+
+		canvas.translate(-800, 0);
+		mPaint.setStyle(Paint.Style.STROKE);
+		mPaint.setColor(Color.GREEN);
+		mPaint.setStrokeWidth(3);
+		Path path = new Path();
+		path.moveTo(500, 100);
+		path.lineTo(920, 80);
+		path.lineTo(720, 200);
+		path.lineTo(600, 400);
+		path.close();
+		mPaint.setTextSize(46);
+		canvas.drawPath(path, mPaint);
+		canvas.drawTextOnPath("7qiuwoeruowoqjifasdkfjksjfiojio23ur8950lfgsbbbbb", path, -20, -20, mPaint);
 	}
 }
