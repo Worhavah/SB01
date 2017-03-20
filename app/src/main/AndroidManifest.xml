@@ -20,8 +20,9 @@
 
 
         <activity android:name=".demos.myview.ViewoneAtivity"> </activity>
-        <activity android:name=".demos.myview.VIewGrouponeActivity">
-        </activity>
+        <activity android:name=".demos.myview.VIewGrouponeActivity">        </activity>
+
+        <activity android:name=".demos.myview.VIewcombinedActivity"     android:screenOrientation="portrait"  ></activity>
     </application>
 
 </manifest>

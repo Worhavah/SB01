@@ -23,6 +23,7 @@ import java.util.List;
 
 import worhavah.sb01.adapter.AdvertisePagerViewAdapter;
 import worhavah.sb01.demos.myview.VIewGrouponeActivity;
+import worhavah.sb01.demos.myview.VIewcombinedActivity;
 import worhavah.sb01.demos.myview.ViewoneAtivity;
 
 public class HomeActivity extends AppCompatActivity {
@@ -121,6 +122,10 @@ public class HomeActivity extends AppCompatActivity {
                         if(position==1){
                             startActivity(new Intent(HomeActivity.this, VIewGrouponeActivity.class));
                         }
+                        if(position==2){
+                            startActivity(new Intent(HomeActivity.this, VIewcombinedActivity.class));
+                        }
+
 
                     }
 
@@ -212,7 +217,7 @@ public class HomeActivity extends AppCompatActivity {
         mDatas = new ArrayList<String>();
         mDatas.add("自定义viewDemo");
         mDatas.add("自定义viewGroup");
-        mDatas.add("2");
+        mDatas.add("combinedview");
         mDatas.add("3");
         mDatas.add("4");
         mDatas.add("5");
