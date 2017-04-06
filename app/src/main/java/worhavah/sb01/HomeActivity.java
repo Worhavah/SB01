@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import worhavah.sb01.adapter.AdvertisePagerViewAdapter;
+import worhavah.sb01.demos.myview.DownloadActivity;
 import worhavah.sb01.demos.myview.VIewGrouponeActivity;
 import worhavah.sb01.demos.myview.VIewcombinedActivity;
 import worhavah.sb01.demos.myview.ViewoneAtivity;
@@ -125,6 +126,9 @@ public class HomeActivity extends AppCompatActivity {
                         if(position==2){
                             startActivity(new Intent(HomeActivity.this, VIewcombinedActivity.class));
                         }
+                        if(position==4){
+                            startActivity(new Intent(HomeActivity.this, DownloadActivity.class));
+                        }
 
 
                     }
@@ -219,7 +223,7 @@ public class HomeActivity extends AppCompatActivity {
         mDatas.add("自定义viewGroup");
         mDatas.add("combinedview");
         mDatas.add("3");
-        mDatas.add("4");
+        mDatas.add("下载demo");
         mDatas.add("5");
         mDatas.add("6");
         mDatas.add("7");
