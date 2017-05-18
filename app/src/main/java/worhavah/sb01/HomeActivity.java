@@ -26,6 +26,7 @@ import worhavah.sb01.demos.myview.DownloadActivity;
 import worhavah.sb01.demos.myview.VIewGrouponeActivity;
 import worhavah.sb01.demos.myview.VIewcombinedActivity;
 import worhavah.sb01.demos.myview.ViewoneAtivity;
+import worhavah.sb01.demos.myview.WXShareActivity;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -130,6 +131,11 @@ public class HomeActivity extends AppCompatActivity {
                             startActivity(new Intent(HomeActivity.this, DownloadActivity.class));
                         }
 
+                        if(position==5){
+                            startActivity(new Intent(HomeActivity.this, WXShareActivity.class));
+                        }
+
+
 
                     }
 
@@ -224,7 +230,7 @@ public class HomeActivity extends AppCompatActivity {
         mDatas.add("combinedview");
         mDatas.add("3");
         mDatas.add("下载demo");
-        mDatas.add("5");
+        mDatas.add("微信分享");
         mDatas.add("6");
         mDatas.add("7");
         mDatas.add("1");

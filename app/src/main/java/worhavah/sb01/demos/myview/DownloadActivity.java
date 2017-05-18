@@ -225,52 +225,52 @@ public class DownloadActivity extends Activity {
 
         return FileDownloader.getImpl().create(url)
                 .setPath(path, isDir)
-                .setCallbackProgressTimes(300)
+             /*   .setCallbackProgressTimes(300)
                 .setMinIntervalUpdateSpeed(400)
-                .setTag(tag)
+                .setTag(tag)*/
                 .setListener(new FileDownloadSampleListener() {
 
                     @Override
                     protected void pending(BaseDownloadTask task, int soFarBytes, int totalBytes) {
                         super.pending(task, soFarBytes, totalBytes);
-                        ((ViewHolder) task.getTag()).updatePending(task);
+                     //   ((ViewHolder) task.getTag()).updatePending(task);
                     }
 
                     @Override
                     protected void progress(BaseDownloadTask task, int soFarBytes, int totalBytes) {
                         super.progress(task, soFarBytes, totalBytes);
-                        ((ViewHolder) task.getTag()).updateProgress(soFarBytes, totalBytes,
-                                task.getSpeed());
+                   //     ((ViewHolder) task.getTag()).updateProgress(soFarBytes, totalBytes,
+                     //           task.getSpeed());
                     }
 
                     @Override
                     protected void error(BaseDownloadTask task, Throwable e) {
                         super.error(task, e);
-                        ((ViewHolder) task.getTag()).updateError(e, task.getSpeed());
+                   //     ((ViewHolder) task.getTag()).updateError(e, task.getSpeed());
                     }
 
                     @Override
                     protected void connected(BaseDownloadTask task, String etag, boolean isContinue, int soFarBytes, int totalBytes) {
                         super.connected(task, etag, isContinue, soFarBytes, totalBytes);
-                        ((ViewHolder) task.getTag()).updateConnected(etag, task.getFilename());
+                     //   ((ViewHolder) task.getTag()).updateConnected(etag, task.getFilename());
                     }
 
                     @Override
                     protected void paused(BaseDownloadTask task, int soFarBytes, int totalBytes) {
                         super.paused(task, soFarBytes, totalBytes);
-                        ((ViewHolder) task.getTag()).updatePaused(task.getSpeed());
+                    //    ((ViewHolder) task.getTag()).updatePaused(task.getSpeed());
                     }
 
                     @Override
                     protected void completed(BaseDownloadTask task) {
                         super.completed(task);
-                        ((ViewHolder) task.getTag()).updateCompleted(task);
+                    //    ((ViewHolder) task.getTag()).updateCompleted(task);
                     }
 
                     @Override
                     protected void warn(BaseDownloadTask task) {
                         super.warn(task);
-                        ((ViewHolder) task.getTag()).updateWarn();
+                    //    ((ViewHolder) task.getTag()).updateWarn();
                     }
                 });
     }

@@ -1,13 +1,15 @@
 package worhavah.sb01;
 
-import android.app.Application;
-import android.content.Context;
+        import android.app.Application;
+        import android.content.Context;
 
-import com.liulishuo.filedownloader.FileDownloader;
-import com.liulishuo.filedownloader.connection.FileDownloadUrlConnection;
-import com.liulishuo.filedownloader.services.DownloadMgrInitialParams;
+        import com.liulishuo.filedownloader.FileDownloader;
+        import com.liulishuo.filedownloader.connection.FileDownloadUrlConnection;
+        import com.liulishuo.filedownloader.services.DownloadMgrInitialParams;
+        import com.tencent.mm.opensdk.openapi.IWXAPI;
+        import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
-import java.net.Proxy;
+        import java.net.Proxy;
 
 
 /**
@@ -16,6 +18,11 @@ import java.net.Proxy;
 public class MyApplication extends Application {
     public static Context CONTEXT;
     private final static String TAG = "FileDownloadApplication";
+
+    private final static String APPID = "f067837f8bf20c865302d723d96de666";
+    public static IWXAPI wxapi;
+
+
 
     @Override
     public void onCreate() {
@@ -39,30 +46,13 @@ public class MyApplication extends Application {
                         .proxy(Proxy.NO_PROXY) // set proxy
                 )));
 
-        // below codes just for monitoring thread pools in the FileDownloader:
-     /*   IThreadDebugger debugger = ThreadDebugger.install(
-                ThreadDebuggers.create() *//** The ThreadDebugger with known thread Categories **//*
-                        // add Thread Category
-                        .add("OkHttp").add("okio").add("Binder")
-                        .add(FileDownloadUtils.getThreadPoolName("Network"), "Network")
-                        .add(FileDownloadUtils.getThreadPoolName("Flow"), "FlowSingle")
-                        .add(FileDownloadUtils.getThreadPoolName("EventPool"), "Event")
-                        .add(FileDownloadUtils.getThreadPoolName("LauncherTask"), "LauncherTask")
-                        .add(FileDownloadUtils.getThreadPoolName("BlockCompleted"), "BlockCompleted"),
+        regtoWX();
 
-                2000, *//** The frequent of Updating Thread Activity information **//*
+    }
 
-                new ThreadDebugger.ThreadChangedCallback() {
-                    *//**
-                     * The threads changed callback
-                     **//*
-                    @Override
-                    public void onChanged(IThreadDebugger debugger) {
-                        // callback this method when the threads in this application has changed.
-                        Log.d(TAG, debugger.drawUpEachThreadInfoDiff());
-                        Log.d(TAG, debugger.drawUpEachThreadSizeDiff());
-                        Log.d(TAG, debugger.drawUpEachThreadSize());
-                    }
-                });*/
+    private void regtoWX() {
+        wxapi= WXAPIFactory.createWXAPI(this,APPID,false);
+        wxapi.registerApp(APPID);
+
     }
 }
