@@ -6,6 +6,7 @@ package worhavah.sb01;
         import com.liulishuo.filedownloader.FileDownloader;
         import com.liulishuo.filedownloader.connection.FileDownloadUrlConnection;
         import com.liulishuo.filedownloader.services.DownloadMgrInitialParams;
+        import com.qihoo360.replugin.RePluginApplication;
         import com.tencent.mm.opensdk.openapi.IWXAPI;
         import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
@@ -15,7 +16,7 @@ package worhavah.sb01;
 /**
  * Created by Jacksgong on 12/17/15.
  */
-public class MyApplication extends Application {
+public class MyApplication extends RePluginApplication {
     public static Context CONTEXT;
     private final static String TAG = "FileDownloadApplication";
 

@@ -135,7 +135,9 @@ public class HomeActivity extends AppCompatActivity {
                             startActivity(new Intent(HomeActivity.this, WXShareActivity.class));
                         }
 
-
+                        if(position==6){
+                            startActivity(new Intent(HomeActivity.this, PluginActivity.class));
+                        }
 
                     }
 
@@ -147,6 +149,13 @@ public class HomeActivity extends AppCompatActivity {
                 }));
 
     }
+
+
+    /*public static native String getSec();//.so中的方法名
+
+    static{
+        System.loadLibrary("jnitest");
+    }*/
 
 
     /**
@@ -231,7 +240,7 @@ public class HomeActivity extends AppCompatActivity {
         mDatas.add("3");
         mDatas.add("下载demo");
         mDatas.add("微信分享");
-        mDatas.add("6");
+        mDatas.add("replugin");
         mDatas.add("7");
         mDatas.add("1");
         mDatas.add("2");
