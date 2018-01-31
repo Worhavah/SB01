@@ -138,7 +138,9 @@ public class HomeActivity extends AppCompatActivity {
                         if(position==6){
                             startActivity(new Intent(HomeActivity.this, PluginActivity.class));
                         }
-
+                        if(position==7){
+                            startActivity(new Intent(HomeActivity.this, DPluginActivity.class));
+                        }
                     }
 
                     @Override

@@ -1,16 +1,16 @@
 package worhavah.sb01;
 
-        import android.app.Application;
-        import android.content.Context;
+import android.content.Context;
 
-        import com.liulishuo.filedownloader.FileDownloader;
-        import com.liulishuo.filedownloader.connection.FileDownloadUrlConnection;
-        import com.liulishuo.filedownloader.services.DownloadMgrInitialParams;
-        import com.qihoo360.replugin.RePluginApplication;
-        import com.tencent.mm.opensdk.openapi.IWXAPI;
-        import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import com.liulishuo.filedownloader.FileDownloader;
+import com.liulishuo.filedownloader.connection.FileDownloadUrlConnection;
+import com.liulishuo.filedownloader.services.DownloadMgrInitialParams;
+import com.morgoo.droidplugin.PluginHelper;
+import com.qihoo360.replugin.RePluginApplication;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
-        import java.net.Proxy;
+import java.net.Proxy;
 
 
 /**
@@ -48,9 +48,14 @@ public class MyApplication extends RePluginApplication {
                 )));
 
         regtoWX();
+        PluginHelper.getInstance().applicationOnCreate(getBaseContext());
 
     }
-
+    @Override
+    protected void attachBaseContext(Context base) {
+        PluginHelper.getInstance().applicationAttachBaseContext(base);
+        super.attachBaseContext(base);
+    }
     private void regtoWX() {
         wxapi= WXAPIFactory.createWXAPI(this,APPID,false);
         wxapi.registerApp(APPID);

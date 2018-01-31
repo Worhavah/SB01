@@ -47,6 +47,7 @@
         <activity android:name=".demos.myview.DownloadActivity"     android:screenOrientation="portrait"  ></activity>
         <activity android:name=".demos.myview.WXShareActivity"     android:screenOrientation="portrait"  ></activity>
         <activity android:name=".PluginActivity"     android:screenOrientation="portrait"  ></activity>
+        <activity android:name=".DPluginActivity"     android:screenOrientation="portrait"  ></activity>
     </application>
 
 </manifest>
